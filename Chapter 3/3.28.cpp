@@ -7,29 +7,29 @@ double findSmallest( double, double, double );
 
 int main()
 {
-    double a;
-    double b; 
-    double c;
+    double number1;
+    double number2; 
+    double number3;
 
     cout << "Enter three double floating point number: " << endl;
-    cin >> a >> b >> c;
+    cin >> number1 >> number2 >> number3;
 
-    cout << "The smallest of the three is " << findSmallest(a, b, c) << endl; 
+    cout << "The smallest of the three is " << findSmallest(number1, number2, number3) << endl; 
 
     return 0;
 }
 
-double findSmallest(double a, double b, double c)
+double findSmallest(double number1, double number2, double number3)
 {
-    double smallest = a;
+    double smallest = number1;
 
-    if (b < smallest)
+    if (number2 < smallest)
     {
-        smallest = b;
+        smallest = number2;
     }
-    if (c < smallest)
+    if (number3 < smallest)
     {
-        smallest = c;
+        smallest = number3;
     }
 
     return smallest;

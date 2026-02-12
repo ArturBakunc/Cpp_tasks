@@ -3,22 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void linearSearch(int array[], int size, int key, int index = 0)
-{
-    if (index >= size)
-    {
-        cout << "Key not found.\n";
-        return;
-    }
-
-    if (array[index] == key)
-    {
-        cout << "The key is found at index " << index << endl;
-        return;
-    }
-
-    linearSearch(array, size, key, index + 1);
-}
+void linearSearch(int [], int , int , int );
 
 int main()
 {
@@ -34,4 +19,21 @@ int main()
     linearSearch(array, size, key);
     
     return 0;
+}
+
+void linearSearch(int array[], int size, int key, int index = 0)
+{
+    if (index >= size)
+    {
+        cout << "Key not found.\n";
+        return;
+    }
+
+    if (array[index] == key)
+    {
+        cout << "The key is found at index " << index << endl;
+        return;
+    }
+
+    linearSearch(array, size, key, index + 1);
 }

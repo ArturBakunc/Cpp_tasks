@@ -1,31 +1,43 @@
 #include <iostream>
-#include <iomanip>
 #include <ctime>
 #include <cstdlib>
 using namespace std;
 
+void rollDice(int [], int);
+
 int main()
 {
-    srand(time(0));
+    const int arraySize = 13; // from 0 - 12
 
-    const int arrSize = 13;
-    int arr[arrSize] = {0};
-    int sum;
+    int array[arraySize] = { 0 };
     
-    for (int i = 0; i < 36000; i++)
-    {
-        int dice1 = rand() % 6 + 1;
-        int dice2 = rand() % 6 + 1;
-        
-        sum = dice1 + dice2;
-        arr[sum]++;
-    }
+    rollDice(array, arraySize);
 
     cout << "Number\t" << "Frequency" << endl;;
-    for (int j = 2; j < arrSize; j++)
+    for (int i = 2; i < arraySize; i++)
     {
-        cout << j << "\t" << arr[j] << endl;
+        cout << i << "\t" << array[i] << endl;
     } 
 
     return 0;
+}
+
+void rollDice(int array[], int arraySize)
+{
+    srand(time(0));
+
+    const int MAX_ITERATIONS = 36000;
+
+    int sumOfRoll;
+    int dice1;
+    int dice2;
+
+    for (int i = 0; i < MAX_ITERATIONS; i++)
+    {
+        dice1 = rand() % 6 + 1;
+        dice2 = rand() % 6 + 1;
+        
+        sumOfRoll = dice1 + dice2;
+        array[sumOfRoll]++;
+    }
 }

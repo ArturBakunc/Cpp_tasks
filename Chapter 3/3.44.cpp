@@ -1,17 +1,32 @@
 #include <iostream>
 using namespace std;
 
-unsigned long long factorial(int n, int level = 0)
+unsigned long long factorial( int, int );
+
+int main()
 {
-    // indentation
+    int fibonacciPosition;
+
+    cout << "Enter a non-negative integer: ";
+    cin >> fibonacciPosition;
+
+    cout << "Factorial of " << fibonacciPosition << ":\n" << endl;
+    
+    factorial(fibonacciPosition);
+    
+    return 0;
+}
+
+unsigned long long factorial(int position, int level = 0)
+{
     for (int i = 0; i < level; i++)
     {
         cout << "  ";
     }
 
-    cout << "factorial(" << n << ") called" << endl;
+    cout << "factorial(" << position << ") called" << endl;
 
-    if (n <= 1)
+    if (position <= 1)
     {
         for (int i = 0; i < level; i++)
         {
@@ -21,7 +36,7 @@ unsigned long long factorial(int n, int level = 0)
         return 1;
     }
 
-    int result = n * factorial(n - 1, level + 1);
+    int result = position * factorial(position - 1, level + 1);
 
     for (int i = 0; i < level; i++)
     {
@@ -33,16 +48,3 @@ unsigned long long factorial(int n, int level = 0)
     return result;
 }
 
-int main()
-{
-    int n;
-
-    cout << "Enter a non-negative integer: ";
-    cin >> n;
-
-    cout << "Factorial of " << n << ":\n" << endl;
-    
-    factorial(n);
-    
-    return 0;
-}

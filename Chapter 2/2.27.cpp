@@ -3,19 +3,19 @@ using namespace std;
 
 int main()
 {
-    int x;
-    int y;
+    int number1;
+    int number2;
     
-    cout << "Enter x: ";
-    cin >> x;
+    cout << "Enter number1: ";
+    cin >> number1;
     
-    cout << "Enter y: ";
-    cin >> y;
+    cout << "Enter number2: ";
+    cin >> number2;
 
     cout << "A case" << endl;
-    if (y == 8)
+    if (number2 == 8)
     {
-        if (x == 5)
+        if (number1 == 5)
         {
             cout << "@@@@@" << endl;
         }
@@ -30,9 +30,9 @@ int main()
     }
 
     cout << "B case" << endl;
-    if (y == 8)
+    if (number2 == 8)
     {
-        if (x == 5)
+        if (number1 == 5)
         {
             cout << "@@@@@" << endl;
         }
@@ -46,9 +46,9 @@ int main()
     }
 
     cout << "C case" << endl;
-    if (y == 8)
+    if (number2 == 8)
     {
-        if (x == 5)
+        if (number1 == 5)
         {
             cout << "@@@@@" << endl;
         }
@@ -63,9 +63,9 @@ int main()
     }
 
     cout << "D case" << endl;
-    if (y == 7)
+    if (number2 == 7)
     {
-        if (x == 5)
+        if (number1 == 5)
         {
             cout << "@@@@@" << endl;
         }

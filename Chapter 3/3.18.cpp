@@ -22,13 +22,13 @@ int main()
     return 0;
 }
 
-int integerPower(int a, int b)
+int integerPower(int base, int exponent)
 {
     int result = 1;
 
-    for (int i = 1; i <= b; i++)
+    for (int i = 1; i <= exponent; i++)
     {
-        result *= a;
+        result *= base;
     }
 
     return result;

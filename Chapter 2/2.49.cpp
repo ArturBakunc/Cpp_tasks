@@ -26,14 +26,36 @@ int main()
 
             switch(number)
             {
-                case 1: price = 2.98; break;
-                case 2: price = 4.50; break;
-                case 3: price = 9.98; break;
-                case 4: price = 4.49; break;
-                case 5: price = 6.87; break;
+                case 1: 
+                {
+                    price = 2.98; 
+                    break;
+                }
+                case 2: 
+                {
+                    price = 4.50; 
+                    break;
+                }
+                case 3: 
+                {
+                    price = 9.98; 
+                    break;
+                }
+                case 4: 
+                {
+                    price = 4.49; 
+                    break;
+                }
+                case 5: 
+                {
+                    price = 6.87; 
+                    break;
+                }
                 default:
+                {
                     cout << "Invalid product number.\n";
                     continue; 
+                }
             }
 
             cout << "Enter quantity sold: ";

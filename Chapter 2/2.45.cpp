@@ -6,27 +6,7 @@
 #include <iostream>
 using namespace std;
 
-int fact(int n)
-{
-    int factorial = 1;
-    int num = n;
-
-    if (n == 0 || n == 1)
-    {
-        factorial = 1;
-    }
-    
-    else
-    {
-        while (n != 1)
-        {
-            factorial *= n;
-            n--;
-        }
-    }
-    
-    return factorial;
-}
+int fact( int );
 
 int main()
 {
@@ -36,4 +16,25 @@ int main()
     }
 
     return 0;
+}
+
+int fact(int number)
+{
+    int factorialResult = 1;
+    int tempNumber = number;
+
+    if (number == 0 || number == 1)
+    {
+        factorialResult = 1;
+    }
+    else
+    {
+        while (number != 1)
+        {
+            factorialResult *= number;
+            number--;
+        }
+    }
+
+    return factorialResult;
 }

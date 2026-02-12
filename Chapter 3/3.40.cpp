@@ -27,6 +27,6 @@ int power(int base, int exponent)
     }
     else
     {
-        return base * power(base, exponent - 1); // Recursive step
+        return base * power(base, exponent - 1);  // Recursive step
     }
 }

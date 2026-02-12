@@ -3,15 +3,17 @@ using namespace std;
 
 int main()
 {
-    int n = 1;
+    const int MAX_NUMBER = 5;
+
+    int number = 1;
 
     cout << "N\t10*N\t100*N\t1000*N" << endl;
     
-    while (n <= 5)
+    while (number <= MAX_NUMBER)
     {
-        cout << n << "\t" << 10 * n << "\t" << 100 * n << "\t" << 1000 * n << endl;
+        cout << number << "\t" << 10 * number << "\t" << 100 * number << "\t" << 1000 * number << endl;
         
-        n++;
+        number++;
     }
 
     return 0;

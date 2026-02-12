@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 using namespace std;
 
@@ -33,7 +32,7 @@ int main()
     cout << endl;
 
     cout << fixed << setprecision(2);
-    cout << "Fahrenheit\t\t" << "Celsius" << endl;
+    cout << "Fahrenheit\t" << "Celsius" << endl;
 
     for (int i = 0; i <= 100; i++)
     {
@@ -43,20 +42,20 @@ int main()
     return 0;
 }
 
-double CelsiusToFahrenheit(double a)
+double CelsiusToFahrenheit(double temperature)
 {
     int const CELSIUS_NUMBER = 32;
     
-    double res = (a * 1.8) + CELSIUS_NUMBER;
+    double temperatureInFahrenheit = (temperature * 1.8) + CELSIUS_NUMBER;
 
-    return res;
+    return temperatureInFahrenheit;
 }
 
-double FahrenheitToCelsius(double a)
+double FahrenheitToCelsius(double temperature)
 {
     int const CELSIUS_NUMBER = 32;
     
-    double res = (a - CELSIUS_NUMBER) * static_cast<double>(5) / 9;
+    double temperatureInCelsius = (temperature - CELSIUS_NUMBER) * static_cast<double>(5) / 9;
 
-    return res;
+    return temperatureInCelsius;
 }

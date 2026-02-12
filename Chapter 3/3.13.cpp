@@ -19,20 +19,20 @@ int main()
     cout << "Enter third number: ";
     cin >> number3;
 
-    int n1 = rounder(number1);
-    int n2 = rounder(number2);
-    int n3 = rounder(number3);
+    int roundedNumber1 = rounder(number1);
+    int roundedNumber2 = rounder(number2);
+    int roundedNumber3 = rounder(number3);
 
-    cout << "The original number is: " << number1 << ", after rounding: " << n1 << endl;
-    cout << "The original number is: " << number2 << ", after rounding: " << n2 << endl;
-    cout << "The original number is: " << number3 << ", after rounding: " << n3 << endl;
+    cout << "The original number is: " << number1 << ", after rounding: " << roundedNumber1 << endl;
+    cout << "The original number is: " << number2 << ", after rounding: " << roundedNumber2 << endl;
+    cout << "The original number is: " << number3 << ", after rounding: " << roundedNumber3 << endl;
 
     return 0;
 }
 
-int rounder(double num)
+int rounder(double number)
 {
-    int y = floor(num + 0.5);
+    int roundedNumber = floor(number + 0.5);
 
-    return y;
+    return roundedNumber;
 }

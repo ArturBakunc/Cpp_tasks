@@ -10,8 +10,8 @@ void correctAnswerResponse();
 void incorrectAnswerResponse();
 
 // global variables;
-int a;
-int b;
+int number1;
+int number2;
 int level;
 char operand;
 double answer;
@@ -41,22 +41,22 @@ void operationGenerator()
         {
             case '+':
             {
-                cout << "How much is " << a << " + " << b << "? (Enter " << END_NUMBER << " to quit): ";
-                result = a + b;
+                cout << "How much is " << number1 << " + " << number2 << "? (Enter " << END_NUMBER << " to quit): ";
+                result = number1 + number2;
                 break;
             }
 
             case '-':
             {
-                cout << "How much is " << a << " - " << b << "? (Enter " << END_NUMBER << " to quit): ";
-                result = a - b;
+                cout << "How much is " << number1 << " - " << number2 << "? (Enter " << END_NUMBER << " to quit): ";
+                result = number1 - number2;
                 break;
             }
 
             case '*':
             {
-                cout << "How much is " << a << " * " << b << "? (Enter " << END_NUMBER << " to quit): ";
-                result = a * b;
+                cout << "How much is " << number1 << " * " << number2 << "? (Enter " << END_NUMBER << " to quit): ";
+                result = number1 * number2;
                 break;
             }
 
@@ -92,31 +92,31 @@ void operationGenerator()
 
 void difficultyLevel()
 {
-    a = rand() % 10;   // always 1-digit
+    number1 = rand() % 10;   // always 1-digit
 
     switch (level)
     {
         case 1:
         {
-            b = rand() % 10;
+            number2 = rand() % 10;
             break;
         }
 
         case 2:
         {
-            b = rand() % 90 + 10;
+            number2 = rand() % 90 + 10;
             break;
         }
 
         case 3:
         {
-            b = rand() % 900 + 100;
+            number2 = rand() % 900 + 100;
             break;
         }
 
         default:
         {
-            b = rand() % 10;
+            number2 = rand() % 10;
             break;
         }
     }
@@ -130,7 +130,7 @@ void chooseOperation()
 
 void incorrectAnswerResponse()
 {
-    int bad = rand() % 4;
+    int bad = rand() % 4; // random number 0-3 to choose a response
 
     switch (bad)
     {
@@ -162,7 +162,7 @@ void incorrectAnswerResponse()
 
 void correctAnswerResponse()
 {
-    int good = rand() % 4;
+    int good = rand() % 4; // raqndom number 0-3 to choose a response
 
     switch (good)
     {

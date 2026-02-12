@@ -8,7 +8,14 @@ int main()
 
     while (count <= MAX_COUNT)
     {
-        cout << (count % 2 ? "****" : "+++++++") << endl;
+        if (count % 2) 
+        {
+            cout <<  "****" ;
+        }
+        else
+        {
+                cout << "++++";   
+        }
         ++count;  
     }
     

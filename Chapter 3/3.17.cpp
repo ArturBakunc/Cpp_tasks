@@ -2,22 +2,34 @@
 #include <cmath>
 using namespace std;
 
+int randomNumberFromSet( int, int, int );
+
 int main()
 {   
-    int number1;
-    int number2;
-    int number3;
+    srand(time(0));
+    
+    int randomNumber;
+    int firstNumber;
+    int step;
+    int numberOfElementsInSet;
 
-    srand(time(0)); // Seed for random number generation
+    cout << "Enter the first number in the set: ";
+    cin >> firstNumber;
 
-    number1 = 2 + 2 * (rand() % 5);
-    cout << "Random integer from the set [2, 4, 6, 8, 10]: " << number1 << endl;
+    cout << "Enter the step of the set: ";
+    cin >> step;
 
-    number2 = 3 + 2 * (rand() % 5);
-    cout << "Random integer from the set [3, 5, 7, 9, 11]: " << number2 << endl;
+    cout << "Enter the number of elements in the set: ";
+    cin >> numberOfElementsInSet;
 
-    number3 = 6 + 4 * (rand() % 5);
-    cout << "Random integer from the set [6, 10, 14, 18, 22]: " << number3 << endl;
-   
+    randomNumber = randomNumberFromSet(firstNumber, step, numberOfElementsInSet);
+
+    cout << "The random number from the set is " << randomNumber;
+
     return 0;
+}
+
+int randomNumberFromSet(int firstNumber, int step, int numberOfElementsInSet)
+{
+    return firstNumber + step * (rand() % numberOfElementsInSet);
 }

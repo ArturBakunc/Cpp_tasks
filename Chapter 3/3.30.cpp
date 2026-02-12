@@ -23,13 +23,13 @@ int main()
     return 0;
 }
 
-void isPrime (int a)
+void isPrime (int number)
 {
     int count = 0;
 
-    for (int i = 2; i <= sqrt(a); i++)
+    for (int i = 2; i <= sqrt(number); i++)
     {
-        if (a % i == 0)
+        if (number % i == 0)
         {
             count += i;
         }
@@ -37,6 +37,6 @@ void isPrime (int a)
 
     if (count == 0)
     {
-        cout << a << " is a prime number. " << endl;
+        cout << number << " is a prime number. " << endl;
     }
 }

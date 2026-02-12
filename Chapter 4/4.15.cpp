@@ -2,6 +2,8 @@
 #include <iomanip>
 using namespace std;
 
+bool isUnique(int[], int, int);
+
 int main()
 {
     const int MAX_NUMBER = 100;
@@ -14,26 +16,16 @@ int main()
 
     for (int i = 0; i < arraySize; )
     {
-        cout << "Enter the number between 10 and 100: "; 
+        cout << "Enter the number between " << MIN_NUMBER << " and " << MAX_NUMBER << ": "; 
         cin >> number;
         
         if (number < MIN_NUMBER || number > MAX_NUMBER)
         {
-            cout << "Invalid number. Try again. " << endl;
+            cout << "Invalid number. Try again." << endl;
             continue;
         }
 
-        bool dublicate = false;
-        for (int j = 0; j < count; j++)
-        {
-            if (uniqueNumbers[j] == number)
-            {
-                dublicate = true;
-                break;
-            }
-        }
-
-        if (!dublicate)
+        if (isUnique(uniqueNumbers, count, number))
         {
             uniqueNumbers[count] = number;
             count++;
@@ -56,3 +48,14 @@ int main()
     return 0;
 }
 
+bool isUnique(int array[], int count, int number)
+{
+    for (int i = 0; i < count; i++)
+    {
+        if (array[i] == number)
+        {
+            return false;
+        }
+    }
+    return true;
+}

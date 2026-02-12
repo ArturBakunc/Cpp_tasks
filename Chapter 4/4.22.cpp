@@ -12,7 +12,7 @@ int main()
     const int MAX_SALESPERSON_NUMBER = 4;
     const int NUMBER_TO_END = -1;
 
-    double shop[rowSize][colSize] = {0};
+    double shop[rowSize][colSize] = { 0 };
 
     while (true)
     {

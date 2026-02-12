@@ -7,13 +7,13 @@ int main()
     double side2;
     double side3;
 
-    cout << "Enter a: ";
+    cout << "Enter side1: ";
     cin >> side1;
     
-    cout << "Enter b: ";
+    cout << "Enter side2: ";
     cin >> side2;
     
-    cout << "Enter c: ";
+    cout << "Enter side3: ";
     cin >> side3;
     
     if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) // the triangle inequality theorem

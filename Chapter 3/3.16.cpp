@@ -13,32 +13,22 @@ using namespace std;
 
 int main()
 {
+    srand(time(0)); 
+
     int randomNumber;
+    int min; 
+    int max;
 
-    // a)  1  <=  n  <=  2 
-    randomNumber = rand() % 2 + 1;
-    cout << "Random integer in range [1, 2]: " << randomNumber << endl;
+    cout << "Enter the range for random number generation (min max): ";
+    cin >> min >> max;
 
-    // b)  1  <=  n  <=  100 
-    randomNumber = rand() % 100 + 1;
-    cout << "Random integer in range [1, 100]: " << randomNumber << endl;
-
-    // c)  0  <=  n  <=  9 
-    randomNumber = rand() % 10;
-    cout << "Random integer in range [0, 9]: " << randomNumber << endl;
-
-    // d)  1000  <=   n   <=   1112   
-    randomNumber = rand() % 113 + 1000;
-    cout << "Random integer in range [1000, 1112]: " << randomNumber << endl;
-
-    // e) -1   <=   n   <=   1 
-    randomNumber = rand() % 3 - 1;
-    cout << "Random integer in range [-1, 1]: " << randomNumber << endl;
-
-    // f) -3   <=   n   <=   11
-    randomNumber = rand() % 15 - 3;
-    cout << "Random integer in range [-3, 11]: " << randomNumber << endl;
+    randomNumber = randomIntegerInRange(min, max);
+    cout << "Random integer in range [" << min << ", " << max << "]: " << randomNumber << endl;
 
     return 0;
+}
 
+int randomIntegerInRange(int min, int max)
+{
+    return rand() % (max - min + 1) + min;
 }

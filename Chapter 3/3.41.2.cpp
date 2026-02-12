@@ -4,24 +4,24 @@ using namespace std;
 
 int main() 
 {
-    int prev = 0; 
-    int curr = 1; 
-    int next;
-    int n = 1;
+    int previousNumber = 0; 
+    int currentNumber = 1; 
+    int nextNumber;
+    int position = 1;
 
     while (true) 
     {
-        next = prev + curr;
+        nextNumber = previousNumber + currentNumber;
         
-        if (next < 0 || next > INT_MAX) // overflow check
+        if (nextNumber < 0 || nextNumber > INT_MAX) // overflow check
             break;
 
-        prev = curr;
-        curr = next;
-        n++;
+        previousNumber = currentNumber;
+        currentNumber = nextNumber;
+        position++;
     }
 
-    cout << "Largest int Fibonacci number: " << curr << " at position n = " << n << endl;
+    cout << "Largest int Fibonacci number: " << previousNumber << " at position = " << position << endl;
 
     return 0;
 }

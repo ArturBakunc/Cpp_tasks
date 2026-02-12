@@ -6,27 +6,27 @@ void asteriskSquare( int, char );
 
 int main()
 {
-    int side;
-    char character;
+    int sideOfSquare;
+    char characterToPrint;
 
     cout << "Enter the side: ";
-    cin >> side;
+    cin >> sideOfSquare;
 
     cout << "Enter a character to fill the square: ";
-    cin >> character;
+    cin >> characterToPrint;
 
-    asteriskSquare(side, character);
+    asteriskSquare(sideOfSquare, characterToPrint);
 
     return 0;
 }
 
-void asteriskSquare(int n, char ch)
+void asteriskSquare(int sideOfSquare, char characterToPrint)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < sideOfSquare; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < sideOfSquare; j++)
         {
-            cout << ch;
+            cout << characterToPrint;
         }
         cout << endl;
     }

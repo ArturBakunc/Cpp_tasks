@@ -7,39 +7,39 @@ int fibonacci( int );
 
 int main() 
 {
-    int n;
+    int fibonacciPosition;
     
-    cout << "Enter n: ";
-    cin >> n;
+    cout << "Enter fibonacci position: ";
+    cin >> fibonacciPosition;
     
-    cout << "Fibonacci(" << n << ") = " << fibonacci(n) << endl;
+    cout << "Fibonacci(" << fibonacciPosition << ") = " << fibonacci(fibonacciPosition) << endl;
 
     return 0;
 }
 
-int fibonacci(int n) 
+int fibonacci(int position) 
 {
-    if (n == 0) 
+    if (position == 0) 
     {
         return 0;
     }
 
-    if (n == 1) 
+    if (position == 1) 
     {
         return 1;
     }
 
-    int prev = 0;
-    int curr = 1;
-        int next;
+    int previousNumber = 0;
+    int currentNumber = 1;
+    int nextNumber;
 
-    for (int i = 2; i <= n; i++) 
+    for (int i = 2; i <= position; i++) 
     {
-        next = prev + curr;
-        prev = curr;
-        curr = next;
+        nextNumber = previousNumber + currentNumber;
+        previousNumber = currentNumber;
+        currentNumber = nextNumber;
     }
 
-    return curr;
+    return currentNumber;
 }
 

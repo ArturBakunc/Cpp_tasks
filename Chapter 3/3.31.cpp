@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 using namespace std;
 
@@ -9,7 +8,7 @@ int main()
 {
     int number;
 
-    cout << "Enter the number: ";
+    cout << "Enter the number to print it's reversed: ";
     cin >> number;
 
     reversedNumber(number);
@@ -17,12 +16,12 @@ int main()
     return 0;
 }
 
-void reversedNumber( int a )
+void reversedNumber( int number )
 {
-    int first = a / 1000;
-    int second = a / 100 % 10;
-    int third = a / 10 % 10;
-    int fourth = a % 10;
+    int firstDigit = number / 1000;
+    int secondDigit = number / 100 % 10;
+    int thirdDigit = number / 10 % 10;
+    int fourthDigit = number % 10;
 
-    cout << a << " reversed is " << fourth << third << second << first << endl; 
+    cout << number << " reversed is " << fourthDigit << thirdDigit << secondDigit << firstDigit << endl; 
 }

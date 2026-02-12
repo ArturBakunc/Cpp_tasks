@@ -47,9 +47,9 @@ int main()
     return 0;
 }
 
-void swap(int a, int b)
+void swap(int number1, int number2)
 {
-    int temp = a;
-    a = b;
-    b = temp;
+    int temp = number1;
+    number1 = number2;
+    number2 = temp;
 }

@@ -3,18 +3,18 @@ using namespace std;
 
 int main()
 {   
-    int x; 
-    int y;
+    int number1; 
+    int number2;
 
-    cout << "Enter x: ";
-    cin >> x;
+    cout << "Enter number1: ";
+    cin >> number1;
     
-    cout << "Enter y: ";
-    cin >> y;
+    cout << "Enter number2: ";
+    cin >> number2;
 
-    if (x < 10)
+    if (number1 < 10)
     {
-        if (y > 10)
+        if (number2 > 10)
         {
             cout << "****" << endl;
         }

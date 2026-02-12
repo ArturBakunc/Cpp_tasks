@@ -1,28 +1,29 @@
 #include <iostream>
 using namespace std;
 
-int gcd(int a, int b);
+int gcd( int, int );
 
 int main()
 {
-    int x; 
-    int y;
+    int number1; 
+    int number2;
 
-    cout << "Enter two integers: ";
-    cin >> x >> y;
+    cout << "Enter two integers to calculate their GCD: ";
+    cin >> number1 >> number2;
 
-    cout << "GCD is: " << gcd(x, y) << endl;
+    cout << "GCD is: " << gcd(number1, number2) << endl;
 
     return 0;
 }
 
-int gcd(int a, int b)
+int gcd(int number1, int number2)
 {
-    while (b != 0)
+    while (number2 != 0)
     {
-        int remainder = a % b;
-        a = b;
-        b = remainder;
+        int remainder = number1 % number2;
+        number1 = number2;
+        number2 = remainder;
     }
-    return a;
+
+    return number1;
 }

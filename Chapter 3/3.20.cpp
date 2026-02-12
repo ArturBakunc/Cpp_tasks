@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-void multiple(int, int);
+bool isMultiple(int, int);
 
 int main()
 {
@@ -10,26 +10,35 @@ int main()
 
     while (true)
     {
-        int num1;
-        int num2;
+        int number1;
+        int number2;
 
-        cout << "Enter the first number ( " << NUMBER_TO_END << " to end): ";
-        cin >> num1;
+        cout << "Enter the first number (" << NUMBER_TO_END << " to end): ";
+        cin >> number1;
 
-        if (num1 == NUMBER_TO_END)
+        if (number1 == NUMBER_TO_END)
         {
             break;
         }
 
-        cout << "Enter the second number ( " << NUMBER_TO_END << " to end): ";
-        cin >> num2;
+        cout << "Enter the second number (" << NUMBER_TO_END << " to end): ";
+        cin >> number2;
 
-        if (num2 == NUMBER_TO_END)
+        if (number2 == NUMBER_TO_END)
         {
             break;
         }
 
-        multiple(num1, num2);
+        bool isMultipleResult = isMultiple(number1, number2);
+
+        if (isMultipleResult)
+        {
+            cout << number2 << " is a multiple of " << number1;
+        }
+        else
+        {
+            cout << number2 << " is not a multiple of " << number1;
+        }
 
         cout << endl;
     }
@@ -37,15 +46,7 @@ int main()
     return 0;
 }
 
-void multiple(int a, int b)
+bool isMultiple(int number, int multiple)
 {
-    if (b % a == 0)
-    {
-        cout << b << " is a multiple of " << a;
-    }
-
-    else
-    {
-        cout << b << " is not a multiple of " << a;
-    }
+    return (multiple % number == 0);
 }

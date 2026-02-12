@@ -8,6 +8,7 @@ void multiplicationGenerator();
 int main()
 {
     multiplicationGenerator();
+    
     return 0;
 }
 
@@ -15,25 +16,27 @@ void multiplicationGenerator()
 {
     srand(time(0));
 
+    const int NUMBER_TO_END = -1;
+
     while (true)
     {
         int answer;
-        int a = rand() % 10;
-        int b = rand() % 10;
+        int number1 = rand() % 10;
+        int number2 = rand() % 10;
 
-        cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+        cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
         cin >> answer;
 
-        if (answer == -1)
+        if (answer == NUMBER_TO_END)
         {
             break;
         }
 
-        while (answer != a * b)
+        while (answer != number1 * number2)
         {
-            int bad = rand() % 4;
+            int bad = rand() % 4; // random number 0-3 for different incorrect answer messages
 
-            switch (bad)
+            switch (bad) 
             {
                 case 0:
                 {
@@ -57,16 +60,16 @@ void multiplicationGenerator()
                 }
             }
 
-            cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+            cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
             cin >> answer;
 
-            if (answer == -1)
+            if (answer == NUMBER_TO_END)
             {
                 return;
             }
         }
 
-        int good = rand() % 4;
+        int good = rand() % 4; // random number 0-3 for different congratulations messages 
 
         switch (good)
         {

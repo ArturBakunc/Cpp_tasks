@@ -1,9 +1,21 @@
 #include <iostream>
 using namespace std;
 
+bool assignSeat(int seats[], int start, int end, int sectionCode);
+bool isFull(int seats[], int size);
+void printBoardingPass(int seatNumber, int sectionCode);
+
+const int TOTAL_SEATS = 10;
+const int FIRST_CLASS_SEATS_START = 0;
+const int FIRST_CLASS_SEATS_END = 5;
+const int ECONOMY_SEATS_START = 5;
+const int ECONOMY_SEATS_END = 10;
+const int FIRST_CLASS_CODE = 1;
+const int ECONOMY_CODE = 2;
+
 int main() 
 {
-    int seats[10] = {0}; // 0 = empty, 1 = occupied
+    int seats[TOTAL_SEATS] = { 0 };
     int choice;
     bool running = true;
 
@@ -15,109 +27,52 @@ int main()
 
         bool seatAssigned = false;
 
-        if (choice == 1) //first class
-        { 
-            for (int i = 0; i < 5; i++) 
-            {
-                if (seats[i] == 0) 
-                {
-                    seats[i] = 1;
-                    cout << "Boarding Pass:\n";
-                    cout << "Seat Number: " << i + 1 << "\n";
-                    cout << "Section: First Class\n\n";
-                    seatAssigned = true;
-                    break;
-                }
-            }
+        if (choice == 1)
+        {
+            seatAssigned = assignSeat(seats, FIRST_CLASS_SEATS_START, FIRST_CLASS_SEATS_END, FIRST_CLASS_CODE);
 
-            if (!seatAssigned) 
+            if (!seatAssigned)
             {
                 cout << "First Class is full. Accept Economy? (1 = Yes, 0 = No): ";
                 int answer;
                 cin >> answer;
 
-                if (answer == 1) 
+                if (answer == 1)
                 {
-                    for (int i = 5; i < 10; i++) 
-                    {
-                        if (seats[i] == 0) 
-                        {
-                            seats[i] = 1;
-                            cout << "Boarding Pass:\n";
-                            cout << "Seat Number: " << i + 1 << "\n";
-                            cout << "Section: Economy\n\n";
-                            seatAssigned = true;
-                            break;
-                        }
-                    }
-                } 
-                else 
+                    assignSeat(seats, ECONOMY_SEATS_START, ECONOMY_SEATS_END, ECONOMY_CODE);
+                }
+                else
                 {
                     cout << "Next flight leaves in 3 hours.\n\n";
                 }
             }
         }
+        else if (choice == 2)
+        {
+            seatAssigned = assignSeat(seats, ECONOMY_SEATS_START, ECONOMY_SEATS_END, ECONOMY_CODE);
 
-        else if (choice == 2) // Economy
-        {    
-            for (int i = 5; i < 10; i++) 
-            {
-                if (seats[i] == 0) 
-                {
-                    seats[i] = 1;
-                    cout << "Boarding Pass:\n";
-                    cout << "Seat Number: " << i + 1 << "\n";
-                    cout << "Section: Economy\n\n";
-                    seatAssigned = true;
-                    break;
-                }
-            }
-
-            if (!seatAssigned) 
+            if (!seatAssigned)
             {
                 cout << "Economy is full. Accept First Class? (1 = Yes, 0 = No): ";
                 int answer;
                 cin >> answer;
 
-                if (answer == 1) 
+                if (answer == 1)
                 {
-                    for (int i = 0; i < 5; i++) 
-                    {
-                        if (seats[i] == 0) 
-                        {
-                            seats[i] = 1;
-                            cout << "Boarding Pass:\n";
-                            cout << "Seat Number: " << i + 1 << "\n";
-                            cout << "Section: First Class\n\n";
-                            seatAssigned = true;
-                            break;
-                        }
-                    }
-                } 
-                else 
+                    assignSeat(seats, FIRST_CLASS_SEATS_START, FIRST_CLASS_SEATS_END, FIRST_CLASS_CODE);
+                }
+                else
                 {
                     cout << "Next flight leaves in 3 hours.\n\n";
                 }
             }
         }
-
-        else 
+        else
         {
             cout << "Invalid choice.\n\n";
         }
 
-        // Check if all seats are full
-        bool full = true;
-        for (int i = 0; i < 10; i++) 
-        {
-            if (seats[i] == 0) 
-            {
-                full = false;
-                break;
-            }
-        }
-
-        if (full) 
+        if (isFull(seats, TOTAL_SEATS))
         {
             cout << "All seats are booked.\n";
             running = false;
@@ -125,4 +80,47 @@ int main()
     }
 
     return 0;
+}
+
+bool assignSeat(int seats[], int start, int end, int sectionCode)
+{
+    for (int i = start; i < end; i++)
+    {
+        if (seats[i] == 0)
+        {
+            seats[i] = 1; 
+            printBoardingPass(i + 1, sectionCode);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void printBoardingPass(int seatNumber, int sectionCode)
+{
+    cout << "Boarding Pass:\n";
+    cout << "Seat Number: " << seatNumber << "\n";
+
+    if (sectionCode == FIRST_CLASS_CODE)
+    {
+        cout << "Section: First Class\n\n";
+    }
+    else if (sectionCode == ECONOMY_CODE)
+    {
+        cout << "Section: Economy\n\n";
+    }
+}
+
+bool isFull(int seats[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (seats[i] == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

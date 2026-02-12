@@ -7,5 +7,8 @@ int main()
     cout << count++ << endl;
 
     main();   // recursive call (not allowed by the standard)
+
     return 0;
 }
+
+// it will run until the stack overflows, which will cause the program to crash.

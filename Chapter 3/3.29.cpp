@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 using namespace std;
 
@@ -14,25 +13,27 @@ int main()
 
     return 0;
 }
-void isPerfectNumber(int a)
+void isPerfectNumber(int number)
 {
     int count = 0;
 
-    for (int i = 1; i < a; i++)
+    for (int i = 1; i < number; i++)
     {
-        if (a % i == 0)
+        if (number % i == 0)
         {
             count += i;
         }
     }
     
-    if (count == a)
+    if (count == number)
     {   
-        cout << a << " is a perfect number. " << endl;
+        cout << number << " is a perfect number. " << endl;
+
         cout << "The divisors are "; 
-        for (int i = 1; i < a; i++)
+
+        for (int i = 1; i < number; i++)
         {
-            if (a % i == 0)
+            if (number % i == 0)
             {
                 cout << i << " ";
             }

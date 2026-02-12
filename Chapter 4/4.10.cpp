@@ -9,7 +9,7 @@ int main()
 
     int sales;
     int salary;
-    int counters[9] = {0};
+    int counters[9] = { 0 };
 
     cout << "Enter the sales (" << NUMBER_TO_END << " to end): ";
     

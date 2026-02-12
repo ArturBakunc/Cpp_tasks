@@ -2,34 +2,35 @@
 using namespace std;
 
 void isPalindrome( string );
+void bucketSort(int [], int );
 
 int main()
 {
-    int arr[] = {472, 15, 903, 66, 201, 18, 343, 194, 61, 804};
-    int n = sizeof(arr) /sizeof(arr[0]);
+    int array[] = {472, 15, 903, 66, 201, 18, 343, 194, 61, 804};
+    int arraySize = sizeof(array) /sizeof(array[0]);
 
-    buckerSort(arr, n);
+    bucketSort(array, arraySize);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < arraySize; i++)
     {
-        cout << arr[i] << " ";
+        cout << array[i] << " ";
     }
 
     return 0;
 }
 
-void buckerSort(int arr[], int n)
+void bucketSort(int array[], int arrSize)
 {
     int bucket[10][1000];
     int bucketCount[10] = {0};
 
-    int max = arr[0];
+    int max = array[0];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < arrSize; i++)
     {
-        if (arr[i] > max)
+        if (array[i] > max)
         {
-            max = arr[i];
+            max = array[i];
         }
     }
 
@@ -40,10 +41,10 @@ void buckerSort(int arr[], int n)
             bucketCount[i] = 0;
         }
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < arrSize; i++)
         {
-            int digit = (arr[i] / divisor) % 10;
-            bucket[digit][bucketCount[digit]] = arr[i];
+            int digit = (array[i] / divisor) % 10;
+            bucket[digit][bucketCount[digit]] = array[i];
             bucketCount[digit]++;
         }
 
@@ -52,7 +53,7 @@ void buckerSort(int arr[], int n)
         {
             for (int  j = 0; j < bucketCount[i]; j++)
             {
-                arr[index++] = bucket[i][j];
+                array[index++] = bucket[i][j];
             }
         }
     }

@@ -63,17 +63,18 @@ void guessNumber()
     }
 
     cout << endl;
-    cout << "Would you like to play again? (y or n): ";
+
+    cout << "Would you like to play again? (yes or no): ";
     cin >> playAgain;
     
     switch (playAgain)
     {
-        case 'y':
+        case 'yes':
         {
             guessNumber();
             break;
         }
-        case 'n':
+        case 'no':
         {
             return;
         }

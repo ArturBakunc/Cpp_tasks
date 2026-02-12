@@ -3,22 +3,25 @@ using namespace std;
 
 int main()
 {
-    int a;
-    int b;
+    int number1;
+    int number2;
 
     // (a) Integer quotient
-    cout << "Enter a and b: ";
-    cin >> a >> b;
-    cout << "Quotient: " << a / b << endl;
+    cout << "Enter number1 and number2: ";
+    cin >> number1 >> number2;
+
+    cout << "Quotient: " << number1 / number2 << endl;
 
     // (b) Integer remainder
-    cout << "Remainder: " << a % b << endl;
+    cout << "Remainder: " << number1 % number2 << endl;
     
     // (c) Print digits
-    int n;
+    int number3;
+
     cout << "Enter number (1 - 32767): ";
-    cin >> n;
-    printDigits(n);
+    cin >> number3;
+    
+    printDigits(number3);
 
     return 0;
 }

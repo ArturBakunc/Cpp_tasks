@@ -5,7 +5,7 @@ int main()
 {
     int number;
     
-    cout << "Enter a 5-digit number: ";
+    cout << "Enter a 5-digit number to check if it is palindrome: ";
     cin >> number;
 
     // Extract each digit

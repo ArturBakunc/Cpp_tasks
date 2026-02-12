@@ -1,15 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void stringReverse(char string[])
-{
-    if (string[0] == '\0')  
-        return;
-
-    stringReverse(string + 1); 
-
-    cout << string[0];  
-}
+void stringReverse(char []);
 
 int main()
 {
@@ -23,4 +15,16 @@ int main()
     cout << endl;
 
     return 0;
+}
+
+void stringReverse(char string[])
+{
+    if (string[0] == '\0')  
+    {
+        return;
+    }
+
+    stringReverse(string + 1); 
+
+    cout << string[0];  
 }

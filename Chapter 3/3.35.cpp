@@ -16,27 +16,30 @@ void multiplicationGenerator()
 {
     srand(time(0));
 
+    const int NUMBER_TO_END = -1;
+
     while (true)
     {
         int answer;
-        int a = rand() % 10;
-        int b = rand() % 10;
+        int number1 = rand() % 10; // one-digit random number
+        int number2 = rand() % 10; // one-digit random number
 
-        cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+        cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
         cin >> answer;
 
-        if (answer == -1)
+        if (answer == NUMBER_TO_END)
         {
             break;
         }
         
-        while (answer != a * b)
+        while (answer != number1 * number2)
         {
             cout << "No. Please try again." << endl;
-            cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+            
+            cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
             cin >> answer;
 
-            if (answer == -1)
+            if (answer == NUMBER_TO_END)
             {
                 return;
             }

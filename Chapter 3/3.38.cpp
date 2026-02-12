@@ -40,18 +40,19 @@ void guessNumber()
     }
 
     cout << "Excellent! You guessed the number!" << endl;
-    cout << "Would you like to play again? (y or n): ";
+    cout << "Would you like to play again? (yes or no): ";
     cin >> playAgain;
 
     switch (playAgain)
     {
-        case 'y':
+        case 'yes':
         {
             guessNumber();
             break;
         }
-        case 'n':
+        case 'no':
         {
+            cout << "Thank you for playing. Goodbye!" << endl; 
             return;
         }
     }

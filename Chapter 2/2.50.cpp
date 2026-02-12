@@ -5,54 +5,65 @@ using std::endl;
 
 int main()
 {
-    int grade; 
+    const int NUMBER_TO_END = -1;
+
     int aCount = 0;
     int bCount = 0;
     int cCount = 0;
     int dCount = 0;
     int fCount = 0;
-
+    int grade; 
+    
     cout << "Enter the letter grades." << endl 
          << "Enter the EOF character to end input." << endl;
-    
-    while ((grade = cin.get()) != EOF)
+        cin >> grade;
+
+    while (grade != NUMBER_TO_END)
     {
         switch (grade)
         {
             case 'A':
             case 'a':
+            {
                 ++aCount;
                 break;
+            }
 
             case 'B':
             case 'b':
+            {
                 ++bCount;
                 break;
+            }
 
             case 'C':
             case 'c':
+            {
                 ++cCount;
                 break;
+            }
 
             case 'D':
             case 'd':
+            {
                 ++dCount;
                 break;
+            }
 
             case 'F':
             case 'f':
+            {
                 ++fCount;
                 break;
-
-            case '\n':
-            case '\t':
-            case ' ':
-                break;
+            }
                 
             default:
+            {
                 cout << "Incorrect letter grade entered. "
                      << "Enter a new grade: " << endl;
+                cin >> grade;
                 break;    
+            }
         }
     }
     

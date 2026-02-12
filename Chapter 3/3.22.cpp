@@ -1,26 +1,25 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 void asteriskSquare( int );
 
 int main()
 {
-    int side;
+    int sideOfSquare;
 
     cout << "Enter the side: ";
-    cin >> side;
+    cin >> sideOfSquare;
 
-    asteriskSquare(side);
+    asteriskSquare(sideOfSquare);
 
     return 0;
 }
 
-void asteriskSquare(int n)
+void asteriskSquare(int sideOfSquare)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < sideOfSquare; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < sideOfSquare; j++)
         {
             cout << "*";
         }

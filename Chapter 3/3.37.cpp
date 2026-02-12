@@ -8,34 +8,36 @@ void multiplicationGenerator();
 int main()
 {
     multiplicationGenerator();
+
     return 0;
 }
 
 void multiplicationGenerator()
 {
+    srand(time(0));
+    const int NUMBER_TO_END = -1;
+    
     int correct = 0;
     int incorrect = 0;
     int totalAttempts = 0;
 
-    srand(time(0));
-
     while (true)
     {
         int answer;
-        int a = rand() % 10;
-        int b = rand() % 10;
+        int number1 = rand() % 10;
+        int number2 = rand() % 10;
 
-        cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+        cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
         cin >> answer;
 
-        if (answer == -1)
+        if (answer == NUMBER_TO_END)
         {
             break;
         }
 
         totalAttempts++;
 
-        while (answer != a * b)
+        while (answer != number1 * number2)
         {
             incorrect++;
 
@@ -68,10 +70,10 @@ void multiplicationGenerator()
                 }
             }
 
-            cout << "How much is " << a << " times " << b << "? (Enter -1 to quit): ";
+            cout << "How much is " << number1 << " times " << number2 << "? (Enter " << NUMBER_TO_END << " to quit): ";
             cin >> answer;
 
-            if (answer == -1)
+            if (answer == NUMBER_TO_END)
             {
                 return;
             }
@@ -79,7 +81,7 @@ void multiplicationGenerator()
             totalAttempts++;
         }
 
-        if (answer == a * b)
+        if (answer == number1 * number2)
         {
             correct++;
 
@@ -112,7 +114,10 @@ void multiplicationGenerator()
 
         if (totalAttempts == 10)
         {
-            if (static_cast<double>(correct) / totalAttempts * 100 < 75)
+            const int PASSING_PERCENTAGE = 75;
+            double gradePercentage = static_cast<double>(correct) / totalAttempts * 100;
+
+            if (gradePercentage < PASSING_PERCENTAGE) // less than 75% correct
             {
                 cout << endl;
                 cout << "Please ask your instructor for extra help." << endl;

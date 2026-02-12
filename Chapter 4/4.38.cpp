@@ -1,6 +1,20 @@
 #include <iostream>
 using namespace std;
 
+int recursiveMinimum( int [], int );
+
+int main()
+{
+    int array[] = {472, 15, 903, 68, 241, 7, 389, 120, 56, 804};
+    int size = sizeof(array) / sizeof(array[0]);
+
+    int minValue = recursiveMinimum(array, size);
+
+    cout << "The minimum value in the array is: " << minValue << endl;
+
+    return 0;
+}
+
 int recursiveMinimum(int array[], int size)
 {
     
@@ -19,16 +33,4 @@ int recursiveMinimum(int array[], int size)
     {
         return minOfRest;
     }
-}
-
-int main()
-{
-    int array[] = {472, 15, 903, 68, 241, 7, 389, 120, 56, 804};
-    int size = sizeof(array) / sizeof(array[0]);
-
-    int minValue = recursiveMinimum(array, size);
-
-    cout << "The minimum value in the array is: " << minValue << endl;
-
-    return 0;
 }

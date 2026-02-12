@@ -1,40 +1,42 @@
 #include <iostream>
 using namespace std;
 
-double fibonacci(int n) 
+double fibonacci( int );
+
+int main() 
 {
-    if (n == 0) 
+    int fibonacciPosition;
+    
+    cout << "Enter Fibonacci position: ";
+    cin >> fibonacciPosition;
+    
+    cout << "Fibonacci(" << fibonacciPosition << ") = " << fibonacci(fibonacciPosition) << endl;
+
+    return 0;
+}
+
+double fibonacci(int position) 
+{
+    if (position == 0) 
     {
         return 0;
     }
     
-    if (n == 1) 
+    if (position == 1) 
     {
         return 1;
     }
     
-    double prev = 0;
-    double curr = 1;
+    double previous = 0;
+    double current = 1;
     double next;
 
-    for (int i = 2; i <= n; i++) 
+    for (int i = 2; i <= position; i++) 
     {
-        next = prev + curr;
-        prev = curr;
-        curr = next;
+        next = previous + current;
+        previous = current;
+        current = next;
     }
 
-    return curr;
-}
-
-int main() 
-{
-    int n;
-    
-    cout << "Enter n: ";
-    cin >> n;
-    
-    cout << "Fibonacci(" << n << ") = " << fibonacci(n) << endl;
-
-    return 0;
+    return current;
 }

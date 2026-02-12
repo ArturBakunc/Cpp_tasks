@@ -28,24 +28,24 @@ int main()
     return 0;
 }
 
-int fact(int n)
+int fact(int number)
 {
-    int factorial = 1;
-    int num = n;
+    int factorialResult = 1;
+    int tempNumber = number;
 
-    if (n == 0 || n == 1)
+    if (number == 0 || number == 1)
     {
-        factorial = 1;
+        factorialResult = 1;
     }
-    
     else
     {
-        while (n != 1)
+        while (number != 1)
         {
-            factorial *= n;
-            n--;
+            factorialResult *= number;
+            number--;
         }
     }
-    
-    return factorial;
+
+    return factorialResult;
 }
+

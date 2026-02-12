@@ -42,16 +42,16 @@ int main()
     cin >> side2_3;
 
     // Calculate hypotenuses
-    double result1 = hypotenuse(side1_1, side2_1);
-    double result2 = hypotenuse(side1_2, side2_2);
-    double result3 = hypotenuse(side1_3, side2_3);
+    double hypotenuseOfTriangle1 = hypotenuse(side1_1, side2_1);
+    double hypotenuseOfTriangle2 = hypotenuse(side1_2, side2_2);
+    double hypotenuseOfTriangle3 = hypotenuse(side1_3, side2_3);
     
     // Display results
     cout << fixed << setprecision(2);
     cout << "Triangle \t Side1 \t\t Side2 \t\t Hypotenuse" << endl;
-    cout << "1\t\t" <<  side1_1 << "\t\t" <<  side2_1 << "\t\t" <<  result1 << endl;
-    cout << "2\t\t" <<  side1_2 << "\t\t" <<  side2_2 << "\t\t" <<  result2 << endl;
-    cout << "3\t\t" <<  side1_3 << "\t\t" <<  side2_3 << "\t\t" <<  result3 << endl;
+    cout << "1\t\t" <<  side1_1 << "\t\t" <<  side2_1 << "\t\t" <<  hypotenuseOfTriangle1 << endl;
+    cout << "2\t\t" <<  side1_2 << "\t\t" <<  side2_2 << "\t\t" <<  hypotenuseOfTriangle2 << endl;
+    cout << "3\t\t" <<  side1_3 << "\t\t" <<  side2_3 << "\t\t" <<  hypotenuseOfTriangle3 << endl;
     
     return 0;
 }

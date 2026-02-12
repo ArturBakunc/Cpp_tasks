@@ -11,17 +11,17 @@ int main()
     
     int real = binaryNumber;
     int count = 0;
-    int n = binaryNumber;
+    int binaryCopy = binaryNumber;
     
-    if (n == 0)
+    if (binaryCopy == 0)
     {
         count = 1;
     }
 
-    while (n != 0)
+    while (binaryCopy != 0)
     {
         count++;
-        n /= 10;
+        binaryCopy /= 10;
     }
 
     int pow = 1; 

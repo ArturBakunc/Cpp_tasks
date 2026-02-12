@@ -46,21 +46,21 @@ int main()
     return 0;
 }
 
-double calculateCharges(double a)
+double calculateCharges(double hours)
 {
     double const HOURLY_CHARGE = 0.5;
     int const MINIMUM_CHARGE = 10;
     int const MIN_HOURS = 3;
     double charge = 2;
     
-    if (a <= MIN_HOURS)
+    if (hours <= MIN_HOURS)
     {
         return charge;
     }
     
-    if (a > MIN_HOURS)
+    if (hours > MIN_HOURS)
     {
-        charge += (HOURLY_CHARGE * (ceil(a) - MIN_HOURS));
+        charge += (HOURLY_CHARGE * (ceil(hours) - MIN_HOURS));
     }
     
     if (charge > MINIMUM_CHARGE)
