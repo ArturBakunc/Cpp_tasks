@@ -4,27 +4,31 @@ using namespace std;
 class Complex
 {
 public:
-    Complex(double real = 0, double imag = 0)
+    Complex(double realPart = 0, double imaginaryPart = 0)
     {
-        realPart = real;
-        imaginaryPart = imag;
+        this->realPart = realPart;
+        this->imaginaryPart = imaginaryPart;
     }
 
-    Complex add(Complex c)
+    Complex add(Complex number)
     {
-        return Complex(realPart + c.realPart,
-                       imaginaryPart + c.imaginaryPart);
+        double realPart = this->realPart  + number.realPart;
+        double imaginaryPart =  this->imaginaryPart + number.imaginaryPart;
+
+        return Complex(realPart, imaginaryPart);
     }
 
-    Complex subtract(Complex c)
+    Complex subtract(Complex number)
     {
-        return Complex(realPart - c.realPart,
-                       imaginaryPart - c.imaginaryPart);
+        double realPart = this->realPart - number.realPart;
+        double imaginaryPart = this->imaginaryPart - number.imaginaryPart;
+
+        return Complex(realPart, imaginaryPart);
     }
 
     void print()
     {
-        cout << realPart << " + " << imaginaryPart << "i" << endl;
+        cout << this->realPart << " + " << this->imaginaryPart << "i" << endl;
     }
 
 private:

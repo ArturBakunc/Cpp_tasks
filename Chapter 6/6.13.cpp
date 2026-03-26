@@ -4,6 +4,12 @@ using namespace std;
 
 class Rectangle
 {
+private:
+    double topLeftX, topLeftY;
+    double bottomLeftX, bottomLeftY;
+    double bottomRightX, bottomRightY;
+    double topRightX, topRightY;
+
 public:
     Rectangle(
         double topLeftX = 1, double topLeftY = 1,
@@ -15,8 +21,7 @@ public:
             topLeftX, topLeftY,
             bottomLeftX, bottomLeftY,
             bottomRightX, bottomRightY,
-            topRightX, topRightY
-        );
+            topRightX, topRightY);
     }
 
     void setCoordinates(
@@ -25,15 +30,19 @@ public:
         double bottomRightX, double bottomRightY,
         double topRightX, double topRightY)
     {
-        if(topLeftX > 0 && topLeftY > 0 && topLeftX <= 20 && topLeftY <= 20 &&
-           bottomLeftX > 0 && bottomLeftY > 0 && bottomLeftX <= 20 && bottomLeftY <= 20 &&
-           bottomRightX > 0 && bottomRightY > 0 && bottomRightX <= 20 && bottomRightY <= 20 &&
-           topRightX > 0 && topRightY > 0 && topRightX <= 20 && topRightY <= 20)
+        if (topLeftX > 0 && topLeftY > 0 && topLeftX <= 20 && topLeftY <= 20 &&
+            bottomLeftX > 0 && bottomLeftY > 0 && bottomLeftX <= 20 && bottomLeftY <= 20 &&
+            bottomRightX > 0 && bottomRightY > 0 && bottomRightX <= 20 && bottomRightY <= 20 &&
+            topRightX > 0 && topRightY > 0 && topRightX <= 20 && topRightY <= 20)
         {
-            this->topLeftX = topLeftX; this->topLeftY = topLeftY;
-            this->bottomLeftX = bottomLeftX; this->bottomLeftY = bottomLeftY;
-            this->bottomRightX = bottomRightX; this->bottomRightY = bottomRightY;
-            this->topRightX = topRightX; this->topRightY = topRightY;
+            this->topLeftX = topLeftX;
+            this->topLeftY = topLeftY;
+            this->bottomLeftX = bottomLeftX;
+            this->bottomLeftY = bottomLeftY;
+            this->bottomRightX = bottomRightX;
+            this->bottomRightY = bottomRightY;
+            this->topRightX = topRightX;
+            this->topRightY = topRightY;
         }
     }
 
@@ -44,22 +53,22 @@ public:
 
     double getLength()
     {
-        double side1 = calculateDistance(topLeftX,topLeftY,bottomLeftX,bottomLeftY);
-        double side2 = calculateDistance(bottomLeftX,bottomLeftY,bottomRightX,bottomRightY);
-        double side3 = calculateDistance(bottomRightX,bottomRightY,topRightX,topRightY);
-        double side4 = calculateDistance(topRightX,topRightY,topLeftX,topLeftY);
+        double side1 = calculateDistance(topLeftX, topLeftY, bottomLeftX, bottomLeftY);
+        double side2 = calculateDistance(bottomLeftX, bottomLeftY, bottomRightX, bottomRightY);
+        double side3 = calculateDistance(bottomRightX, bottomRightY, topRightX, topRightY);
+        double side4 = calculateDistance(topRightX, topRightY, topLeftX, topLeftY);
 
-        return max(max(side1,side2),max(side3,side4));
+        return max(max(side1, side2), max(side3, side4));
     }
 
     double getWidth()
     {
-        double side1 = calculateDistance(topLeftX,topLeftY,bottomLeftX,bottomLeftY);
-        double side2 = calculateDistance(bottomLeftX,bottomLeftY,bottomRightX,bottomRightY);
-        double side3 = calculateDistance(bottomRightX,bottomRightY,topRightX,topRightY);
-        double side4 = calculateDistance(topRightX,topRightY,topLeftX,topLeftY);
+        double side1 = calculateDistance(topLeftX, topLeftY, bottomLeftX, bottomLeftY);
+        double side2 = calculateDistance(bottomLeftX, bottomLeftY, bottomRightX, bottomRightY);
+        double side3 = calculateDistance(bottomRightX, bottomRightY, topRightX, topRightY);
+        double side4 = calculateDistance(topRightX, topRightY, topLeftX, topLeftY);
 
-        return min(min(side1,side2),min(side3,side4));
+        return min(min(side1, side2), min(side3, side4));
     }
 
     double getPerimeter()
@@ -76,12 +85,6 @@ public:
     {
         return getLength() == getWidth();
     }
-
-private:
-    double topLeftX, topLeftY;
-    double bottomLeftX, bottomLeftY;
-    double bottomRightX, bottomRightY;
-    double topRightX, topRightY;
 };
 
 int main()
@@ -95,15 +98,14 @@ int main()
         topLeftX, topLeftY,
         bottomLeftX, bottomLeftY,
         bottomRightX, bottomRightY,
-        topRightX, topRightY
-    );
+        topRightX, topRightY);
 
     cout << "Length: " << rectangleObject.getLength() << endl;
     cout << "Width: " << rectangleObject.getWidth() << endl;
     cout << "Perimeter: " << rectangleObject.getPerimeter() << endl;
     cout << "Area: " << rectangleObject.getArea() << endl;
 
-    if(rectangleObject.isSquare())
+    if (rectangleObject.isSquare())
     {
         cout << "It is a square" << endl;
     }

@@ -6,28 +6,30 @@
 #include <iostream>
 using namespace std;
 
+const int MAX_VALUE;
+
 class Rectangle
 {
 public:
-    Rectangle(double side1 = 1, double side2 = 1)
+    Rectangle(double length = 1, double width = 1)
     {
-        setLength(length);
-        setWidth(width);
+        setLength(this->length);
+        setWidth(this->width);
     }
 
-    void setLength(double len)
+    void setLength(double length)
     {
-        if (len > 0 && len < 20)
+        if (length > 0 && length < MAX_VALUE)
         {
-            length = len;
+            this->length = length;
         }
     }
 
-    void setWidth(double wid)
+    void setWidth(double width)
     {
-        if (wid > 0 && wid < 20)
+        if (width > 0 && width < MAX_VALUE)
         {
-            width = wid;
+            this->width = width;
         }
     }
 

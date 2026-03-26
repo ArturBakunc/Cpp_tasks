@@ -7,6 +7,9 @@ const int MAX_SQUARE = 9;
 
 class TicTacToe
 {
+private:
+    int table[ROW_SIZE][COL_SIZE];
+
 public:
     TicTacToe()
     {
@@ -76,17 +79,17 @@ public:
     {
         int row;
         int column;
-
+        
         cout << "Enter the row and column to put the O: ";
         cin >> row >> column;
-
+        
         if (row < 0 || row > 2 || column < 0 || column > 2)
         {
             cout << "Invalid position.\n";
             moveO();
             return;
         }
-
+        
         if (table[row][column] == 0)
         {
             table[row][column] = 2;
@@ -97,42 +100,58 @@ public:
             moveO();
         }
     }
-
-    int check()
+    
+    bool check(int player)
     {
-        if (table[0][0] == 1 && table[0][1] == 1 && table[0][2] == 1 || // first row
-            table[1][0] == 1 && table[1][1] == 1 && table[1][2] == 1 || // second row
-            table[2][0] == 1 && table[2][1] == 1 && table[2][2] == 1 || // third row
-            table[0][0] == 1 && table[1][0] == 1 && table[2][0] == 1 || // first column
-            table[0][1] == 1 && table[1][1] == 1 && table[2][1] == 1 || // second column
-            table[0][2] == 1 && table[1][2] == 1 && table[2][2] == 1 || // third column
-            table[0][0] == 1 && table[1][1] == 1 && table[2][2] == 1 || // diagonal 1
-            table[2][0] == 1 && table[1][1] == 1 && table[0][2] == 1 )  // diagonal 2
+        // ROWS + COLUMNS
+        for (int i = 0; i < ROW_SIZE; i++)
         {
-            cout << "X team won." << endl;
-            return 0;
+            int countRow = 0;
+            int countColumn = 0;
+
+            for (int j = 0; j < COL_SIZE; j++)
+            {
+                if (table[i][j] == player)
+                {
+                    countRow++;
+                }
+
+                if (table[j][i] == player)
+                {
+                    countColumn++;
+                }
+            }
+
+            if (countRow == ROW_SIZE || countColumn == ROW_SIZE)
+            {
+                return true;
+            }
         }
 
-        else if (table[0][0] == 2 && table[0][1] == 2 && table[0][2] == 2 || // first row
-                 table[1][0] == 2 && table[1][1] == 2 && table[1][2] == 2 || // second row
-                 table[2][0] == 2 && table[2][1] == 2 && table[2][2] == 2 || // third row 
-                 table[0][0] == 2 && table[1][0] == 2 && table[2][0] == 2 || // first column
-                 table[0][1] == 2 && table[1][1] == 2 && table[2][1] == 2 || // second column
-                 table[0][2] == 2 && table[1][2] == 2 && table[2][2] == 2 || // third column
-                 table[0][0] == 2 && table[1][1] == 2 && table[2][2] == 2 || // diagonal 1
-                 table[2][0] == 2 && table[1][1] == 2 && table[0][2] == 2 )  // diagonal 2
+        // DIAGONALS
+        int diagonalCount = 0;
+        int reverseDiagonalCount = 0;
+
+        for (int i = 0; i < ROW_SIZE; i++)
         {
-            cout << "O team won. " << endl;
-            return 0;
+            if (table[i][i] == player)
+            {
+                diagonalCount++;
+            }
+
+            if (table[i][COL_SIZE - 1 - i] == player)
+            {
+                reverseDiagonalCount++;
+            }
         }
-        else
+
+        if (diagonalCount == ROW_SIZE || reverseDiagonalCount == ROW_SIZE)
         {
-            return 1;
+            return true;
         }
+
+        return false;
     }
-
-private:
-    int table[ROW_SIZE][COL_SIZE];
 };
 
 int main()
@@ -152,10 +171,23 @@ int main()
             table.moveO();
         }
 
-        if (table.check() == 0)
+        if (i % 2 == 0)
         {
-            table.print();
-            return 0;
+            if (table.check(1))
+            {
+                table.print();
+                cout << "X won\n";
+                return 0;
+            }
+        }
+        else
+        {
+            if (table.check(2))
+            {
+                table.print();
+                cout << "O won\n";
+                return 0;
+            }
         }
     }
 
